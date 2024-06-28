@@ -33,6 +33,7 @@ class Base(DeclarativeBase):
 
 
 app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URI")
+app.config["SQLALCHEMY_ENGINE_OPTIONS"] = {"pool_recycle": 280}
 db = SQLAlchemy(model_class=Base)
 db.init_app(app)
 
